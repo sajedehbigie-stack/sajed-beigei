@@ -256,6 +256,23 @@ img, video, iframe { max-width: 100%; }
     .main { padding: 7px; }
     .content, .menu { padding: 14px; }
 }
+	@media screen and (max-width: 768px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .menu {
+        order: -1;
+        width: 100%;
+    }
+
+    .content {
+        order: 1;
+        width: 100%;
+    }
+}
 
 </style>
 </head>
