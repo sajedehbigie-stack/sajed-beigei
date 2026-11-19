@@ -1,264 +1,402 @@
 @charset "utf-8";
 
-/* تنظیمات پایه */
+
+/* تنظیمات کلی سایت */
 * {
     box-sizing: border-box;
 }
 
-html {
-    width: 100%;
-    overflow-x: hidden;
-}
-
 body {
+    font-family: 'Vazirmatn', Tahoma, sans-serif;
+    font-style: normal;
     direction: rtl;
-    font-family: "Vazirmatn", Tahoma, sans-serif;
-    margin: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #F8F1E9;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #F8F1E9;
     color: #382923;
-    overflow-x: hidden;
 }
 
-/* هدر */
+/* هدر سایت */
 .header {
     width: 100%;
-    aspect-ratio: 1280 / 427;
-    flex: 0 0 auto;
-    background-image: url("banner.jfif");
+    height: clamp(250px, 35vw, 550px);
+    background-image:url("banner.jfif");
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
-    border-bottom: 4px solid #B98279;
-    border-radius: 0 0 24px 24px;
-    box-shadow: 0 5px 18px rgba(64, 37, 31, .12);
-}
-
-/* چیدمان اصلی: محتوا چپ، منو راست */
-.main {
-    direction: ltr;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 18px;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 20px;
-    flex: 1 0 auto;
-}
-
-.content,
-.menu {
-    direction: rtl;
-    min-width: 0;
-}
-
-.content {
-    order: 1;
-    flex: 1 1 0;
-    width: auto;
-    min-height: 420px;
+    background-position: center center;
     margin: 0;
-    padding: 30px;
-    background: linear-gradient(145deg, #fffdf9, #fff8f5);
-    color: #66534b;
-    font-size: 17px;
-    line-height: 2.35;
-    text-align: justify;
-    border: 1px solid #E8D8CC;
-    border-top: 5px solid #B98279;
-    border-radius: 22px;
-    box-shadow: 0 8px 24px rgba(64, 37, 31, .08);
-    overflow-wrap: anywhere;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 0 0 30px 30px;
+    border-bottom: 5px solid #B98279;
+    box-shadow: 0 5px 18px rgba(64, 37, 31, 0.15);
 }
 
-.content h1,
+/* بخش اصلی */
+.main {
+    direction: rtl;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 1%;
+    padding: 15px;
+    flex: 1;
+    flex-direction: row-reverse;
+}
+
+/* کادر محتوا */
+.content {
+    background-color: #fffdf9;
+    width: 70%;
+    min-height: 450px;
+    padding: 35px;
+    margin: 15px 0;
+    text-align: justify;
+    font-size: 17px;
+    color: #66534b;
+    border-radius: 28px;
+    box-shadow: 0 5px 20px rgba(64, 37, 31, 0.08);
+    line-height: 2.3;
+    border: 1px solid #E8D8CC;
+    transition: 0.3s ease;
+}
+
+/* عنوان های محتوا */
 .content h2 {
     color: #763D4E;
+    border-right: 6px solid #B98279;
+    padding-right: 18px;
+    font-size: 28px;
     font-weight: 800;
-    line-height: 1.8;
-    margin: 0 0 20px;
-    padding: 8px 15px;
-    border-right: 5px solid #B98279;
-    background: linear-gradient(to left, #F8E8E6, transparent);
-    border-radius: 8px;
+    margin-bottom: 25px;
 }
 
-.content h2 { font-size: 26px; }
-.content h3 {
-    color: #8B6255;
-    font-size: 20px;
-    margin: 22px 0 10px;
-    line-height: 1.8;
-}
+/* متن ها */
 .content p {
-    color: #66534b;
-    line-height: 2.35;
-    margin: 0 0 18px;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 2.5;
+    text-align: justify;
+    word-spacing: 1px;
 }
-.content ul { padding-right: 24px; }
-.content li { margin: 8px 0; }
 
+/* منوی کناری */
 .menu {
-    order: 2;
-    flex: 0 0 280px;
-    width: 280px;
-    min-height: 300px;
-    margin: 0;
-    padding: 20px;
-    background: #E8C7C9;
+    width: 29%;
+    background-color: #E8C7C9;
+    min-height: 430px;
+    padding: 22px;
+    margin-top: 15px;
+    font-size: 17px;
+    border-radius: 22px;
+    box-shadow: 0 5px 18px rgba(64, 37, 31, 0.08);
     border: 1px solid #DDB9B9;
-    border-radius: 20px;
-    box-shadow: 0 5px 18px rgba(64, 37, 31, .08);
+    transition: 0.3s ease;
 }
 
-.menu ul {
+/* لیست منو */
+ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-.menu li { margin: 0 0 12px; }
-.menu li:last-child { margin-bottom: 0; }
-.menu a,
-.menu a:link,
-.menu a:visited {
-    display: block;
-    width: 100%;
-    padding: 14px 10px;
-    color: #FFF7F0;
-    background: linear-gradient(135deg, #76534B, #382923);
-    text-decoration: none;
-    text-align: center;
-    font-weight: 600;
-    border: 1px solid rgba(255,255,255,.15);
-    border-radius: 11px;
-    transition: .2s ease;
-}
-.menu a:hover {
-    color: #382923;
-    background: linear-gradient(135deg, #B98279, #E8C7C9);
-    transform: translateX(-3px);
-    box-shadow: 0 5px 12px rgba(64, 37, 31, .15);
-}
-.menu a:focus-visible {
-    outline: 3px solid #763D4E;
-    outline-offset: 3px;
+
+li {
+    margin: 12px 0;
 }
 
-img {
+/* دکمه های منو */
+a:link,
+a:visited {
+    background: linear-gradient(135deg, #76534B, #382923);
+    color: #fff7f0;
+    padding: 17px;
     display: block;
+    text-decoration: none;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.15);
+    letter-spacing: 0.3px;
+}
+
+/* افکت حرکت دکمه ها */
+a:hover {
+    background: linear-gradient(135deg, #B98279, #E8C7C9);
+    color: #382923;
+    transform: translateX(-5px);
+    box-shadow: 0 6px 15px rgba(64, 37, 31, 0.2);
+}
+
+/* تصاویر */
+img {
     max-width: 100%;
     height: auto;
     border-radius: 12px;
 }
 
-/* گالری */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 18px;
-}
-.gallery-item {
-    padding: 12px;
-    background: #FFF4F1;
-    border: 1px solid #E8D8CC;
-    border-radius: 16px;
-    text-align: center;
-}
-.gallery-item img {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-}
-.gallery-item h3 { margin: 10px 0 0; }
-
-/* کارت‌ها و نمونه سؤال */
-.info-card,
-.question-card,
-.field-section {
-    padding: 18px;
-    margin: 18px 0;
-    background: #FFF4F1;
-    border: 1px solid #E8D8CC;
-    border-right: 4px solid #B98279;
-    border-radius: 14px;
-}
-.pdf-btn {
-    display: inline-block;
-    padding: 10px 18px;
-    color: #fff7f0;
-    background: #76534B;
-    text-decoration: none;
-    border-radius: 9px;
-}
-
-/* پابرگ */
+/* فوتر */
 .footer {
     width: 100%;
+    min-height: 80px;
     margin-top: auto;
-    padding: 20px 15px;
-    color: #F8E8D6;
-    background: linear-gradient(135deg, #382923, #593943, #76534B);
-    border-top: 4px solid #B98279;
-    border-radius: 24px 24px 0 0;
-    text-align: center;
+    padding: 15px;
     line-height: 2;
+    text-align: center;
+    background: linear-gradient(135deg, #382923, #593943);
+    font-size: 16px;
+    color: #fff1f0;
+    border-radius: 25px 25px 0 0;
+    border-top: 3px solid #B98279;
 }
-.footer p { margin: 0; }
 
-/* موبایل و تبلت */
-@media (max-width: 768px) {
-    .header {
-        aspect-ratio: 1280 / 427;
-        border-radius: 0 0 16px 16px;
-    }
+/* نمایش در موبایل و تبلت */
+@media screen and (max-width: 768px) {
+
     .main {
         flex-direction: column;
-        gap: 12px;
-        padding: 12px;
+        padding: 10px;
+        gap: 10px;
     }
+
+    .content,
     .menu {
-        order: 1;
-        flex: 0 0 auto;
         width: 100%;
-        min-height: 0;
-        padding: 14px;
+        padding: 18px;
+        margin: 5px 0;
     }
-    .menu ul {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 9px;
+
+    .header {
+        height: 220px;
     }
-    .menu li { margin: 0; }
-    .menu a,
-    .menu a:link,
-    .menu a:visited {
-        height: 100%;
-        padding: 12px 7px;
-        font-size: 14px;
+
+    .content h2 {
+        font-size: 21px;
     }
-    .content {
-        order: 2;
-        width: 100%;
-        min-height: 0;
-        padding: 20px;
+
+    .content p {
         font-size: 15px;
     }
-    .content h1,
-    .content h2 { font-size: 21px; }
-    .content h3 { font-size: 18px; }
-    .content p { font-size: 15px; line-height: 2.1; }
-    .footer { font-size: 14px; }
+	.footer {
+    font-size: 14px;
+    padding: 20px 10px;
+    min-height: 85px;
 }
 
-@media (max-width: 380px) {
-    .main { padding: 8px; }
-    .menu { padding: 10px; }
-    .menu a,
-    .menu a:link,
-    .menu a:visited { font-size: 13px; }
-    .content { padding: 15px; }
+    /* فوتر سایت */
+.footer {
+    width: 100%;
+    min-height: 100px;
+    margin-top: auto;
+    padding: 25px 15px;
+    line-height: 2;
+    text-align: center;
+    background: linear-gradient(135deg, #382923, #593943, #76534B);
+    font-size: 16px;
+    color: #F8E8D6;
+    border-top: 4px solid #B98279;
+    border-radius: 30px 30px 0 0;
+    box-shadow: 0 -5px 20px rgba(64, 37, 31, 0.12);
+}
+
+/* متن داخل فوتر */
+.footer p {
+    margin: 5px 0;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* افکت فوتر */
+.footer:hover {
+    box-shadow: 0 -8px 25px rgba(64, 37, 31, 0.18);
+}
+}
+
+/* اصلاحات یکپارچه برای نمایشگرهای کوچک و هدر کامل */
+html { width: 100%; overflow-x: hidden; }
+body { width: 100%; max-width: 100%; overflow-x: hidden; }
+.header {
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 1280 / 427;
+    background-size: 100% 100% !important;
+    background-position: center center !important;
+    background-repeat: no-repeat;
+}
+.main { width: 100%; max-width: 100%; min-width: 0; }
+.content, .menu { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+img, video, iframe { max-width: 100%; }
+@media (max-width: 768px) {
+    .main { flex-direction: column !important; align-items: stretch; gap: 12px; padding: 10px; }
+    .content, .menu { width: 100% !important; max-width: 100%; margin: 5px 0; padding: 18px; }
+    .header { border-radius: 0 0 18px 18px; }
+    .content { font-size: 15px; line-height: 2; }
+    .content p { font-size: 15px; line-height: 2.1; }
+    .content h1 { font-size: clamp(21px, 6vw, 28px); }
+    .content h2 { font-size: clamp(19px, 5.2vw, 24px); }
+    .menu a { display: block; max-width: 100%; overflow-wrap: anywhere; }
+}
+@media (max-width: 400px) {
+    .main { padding: 7px; }
+    .content, .menu { padding: 14px; }
+}
+@media screen and (max-width: 768px) {
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .menu {
+        order: -1;
+        width: 100%;
+    }
+
+    .content {
+        order: 1;
+        width: 100%;
+    }
+}
+
+
+
+
+
+/* اصلاح نهایی چیدمان: منو راست، محتوا چپ، حتی در موبایل */
+html, body {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+}
+body {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+.main {
+    direction: rtl !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    justify-content: space-between !important;
+    gap: 2% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    flex: 0 0 auto !important;
+    padding: 15px !important;
+}
+.main > .menu {
+    order: 0 !important;
+    float: none !important;
+    position: static !important;
+    flex: 0 0 32% !important;
+    width: 32% !important;
+    min-width: 0 !important;
+    max-width: 32% !important;
+    height: auto !important;
+    margin: 10px 0 !important;
+}
+.main > .content {
+    order: 1 !important;
+    float: none !important;
+    position: static !important;
+    flex: 1 1 66% !important;
+    width: 66% !important;
+    min-width: 0 !important;
+    max-width: 66% !important;
+    height: auto !important;
+    margin: 10px 0 !important;
+    overflow-wrap: anywhere !important;
+}
+.main > .menu ul {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.main > .menu li {
+    display: block !important;
+    width: 100% !important;
+    margin: 8px 0 !important;
+}
+.main > .menu a,
+.main > .menu a:link,
+.main > .menu a:visited {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+    text-align: center !important;
+}
+.footer {
+    position: static !important;
+    inset: auto !important;
+    float: none !important;
+    width: 100% !important;
+    flex: 0 0 auto !important;
+    margin-top: 12px !important;
+    clear: both !important;
+}
+@media screen and (max-width: 768px) {
+    .main {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: flex-start !important;
+        gap: 2% !important;
+        padding: 8px !important;
+    }
+    .main > .menu {
+        order: 0 !important;
+        flex: 0 0 35% !important;
+        width: 35% !important;
+        max-width: 35% !important;
+        padding: 9px 6px !important;
+        margin: 5px 0 !important;
+        min-height: 0 !important;
+    }
+    .main > .content {
+        order: 1 !important;
+        flex: 1 1 63% !important;
+        width: 63% !important;
+        max-width: 63% !important;
+        padding: 12px 10px !important;
+        margin: 5px 0 !important;
+        min-height: 0 !important;
+        font-size: 13px !important;
+        line-height: 2 !important;
+    }
+    .main > .menu li { margin: 6px 0 !important; }
+    .main > .menu a,
+    .main > .menu a:link,
+    .main > .menu a:visited {
+        padding: 9px 4px !important;
+        font-size: clamp(10px, 2.8vw, 13px) !important;
+        line-height: 1.7 !important;
+        border-radius: 9px !important;
+    }
+    .main > .content h1 { font-size: clamp(17px, 4.8vw, 22px) !important; }
+    .main > .content h2 { font-size: clamp(17px, 4.6vw, 22px) !important; }
+    .main > .content h3 { font-size: clamp(15px, 4vw, 19px) !important; }
+    .main > .content p { font-size: clamp(11px, 3vw, 14px) !important; line-height: 2.1 !important; }
+    .footer { font-size: 12px !important; padding: 14px 8px !important; min-height: 0 !important; }
+}
+@media screen and (max-width: 360px) {
+    .main { padding: 6px !important; gap: 1.5% !important; }
+    .main > .menu { flex-basis: 36% !important; width: 36% !important; max-width: 36% !important; padding: 7px 4px !important; }
+    .main > .content { flex-basis: 62.5% !important; width: 62.5% !important; max-width: 62.5% !important; padding: 9px 7px !important; }
+    .main > .menu a, .main > .menu a:link, .main > .menu a:visited { font-size: 10px !important; padding: 8px 3px !important; }
 }
